@@ -1,4 +1,4 @@
-
+'use strict';
 
 var generatePicturesJS = function (amountPictures) {
   var dataPictures = [];
@@ -29,7 +29,7 @@ var generatePicturesJS = function (amountPictures) {
 
       var resultComments = [];
 
-      for (var i = 0; i < amountComments; i++) {
+      for (var j = 0; j < amountComments; j++) {
         var wantedCommentIndex = Math.floor(Math.random() * commentsData.length);
         resultComments.push(commentsData[wantedCommentIndex]);
         commentsData.splice(wantedCommentIndex, 1); // Удаляем выбранный элемент
