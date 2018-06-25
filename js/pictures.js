@@ -133,6 +133,6 @@ var generateBigPicturesDOM =  function (picturesJS) {
 var picturesJS = generatePicturesJS(25);
 var picturesDOM = generatePicturesDOM(picturesJS);
 insertPictures(picturesDOM);
-var bigPicturesDOM = generateBigPicturesDOM(picturesJS);
+generateBigPicturesDOM(picturesJS);
 
 
