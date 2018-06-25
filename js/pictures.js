@@ -1,4 +1,4 @@
-
+'use strict';
 
 var generatePicturesJS = function (amountPictures) {
   var dataPictures = [];
