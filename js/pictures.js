@@ -1,3 +1,5 @@
+'use strict'
+
 var generatePicturesJS = function (amountPictures) {
   var dataPictures = [];
 
@@ -10,7 +12,7 @@ var generatePicturesJS = function (amountPictures) {
       description: ''
     };
 
-    var generateLikes = function randomNumber(min, max) {
+    var generateLikes = function (min, max) {
       return Math.floor(min + Math.random() * (max + 1 - min))
     };
 
@@ -27,10 +29,10 @@ var generatePicturesJS = function (amountPictures) {
 
       var resultComments = [];
 
-      for (var i = 0; i < amountComments; i++) {
+      for (i = 0; i < amountComments; i++) {
         var wantedCommentIndex = Math.floor(Math.random() * commentsData.length);
         resultComments.push(commentsData[wantedCommentIndex]);
-        commentsData.splice(wantedCommentIndex, 1); //Удаляем выбранный элемент
+        commentsData.splice(wantedCommentIndex, 1); // Удаляем выбранный элемент
       }
       return resultComments;
     };
@@ -45,9 +47,8 @@ var generatePicturesJS = function (amountPictures) {
         'Цените каждое мгновенье. Цените тех, кто рядом с вами и отгоняйте все сомненья. Не обижайте всех словами......',
         'Вот это тачка!'
       ];
-
       return descriptionData[Math.floor(Math.random() * descriptionData.length)];
-      };
+    };
 
     picture.url = 'photos/' + (i + 1) + '.jpg';
     picture.likes = generateLikes(15, 200);
@@ -56,10 +57,8 @@ var generatePicturesJS = function (amountPictures) {
 
     dataPictures.push(picture);
   }
-
   return dataPictures;
 };
-
 
 var generatePicturesDOM = function (picturesJS) {
   var generatePictureData = [];
@@ -90,8 +89,7 @@ var insertPictures = function (elementsDOM) {
   picturesBlock.appendChild(picturesFragment);
 };
 
-
-var generateBigPicturesDOM =  function (picturesJS) {
+var generateBigPicturesDOM = function (picturesJS) {
   var bigPicture = document.querySelector('.big-picture');
   bigPicture.classList.remove('hidden');
 
@@ -102,7 +100,7 @@ var generateBigPicturesDOM =  function (picturesJS) {
   bigPicture.querySelector('.comments-count').textContent = firstPictureJS.comments.length;
   bigPicture.querySelector('.social__caption').textContent = firstPictureJS.description;
 
-  var generateCommentsBlock = function(pictureJS) {
+  var generateCommentsBlock = function (pictureJS) {
 
     var blockCommentsDOM = document.querySelector('.social__comments');
     var blockCommentsDOMElementProrotype = blockCommentsDOM.querySelector('.social__comment');
@@ -119,10 +117,9 @@ var generateBigPicturesDOM =  function (picturesJS) {
       blockCommentsDOMElement.querySelector('.social__text').textContent = pictureJS.comments[i];
 
       blockCommentsDOM.appendChild(blockCommentsDOMElement);
-
-      };
+    }
     return blockCommentsDOM;
-    };
+  };
 
   bigPicture.querySelector('.social__comment-count').classList.add('visually-hidden');
   bigPicture.querySelector('.social__loadmore').classList.add('visually-hidden');
@@ -134,5 +131,3 @@ var picturesJS = generatePicturesJS(25);
 var picturesDOM = generatePicturesDOM(picturesJS);
 insertPictures(picturesDOM);
 generateBigPicturesDOM(picturesJS);
-
-
