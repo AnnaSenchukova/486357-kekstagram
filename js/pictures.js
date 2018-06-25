@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var generatePicturesJS = function (amountPictures) {
   var dataPictures = [];
@@ -13,7 +13,7 @@ var generatePicturesJS = function (amountPictures) {
     };
 
     var generateLikes = function (min, max) {
-      return Math.floor(min + Math.random() * (max + 1 - min))
+      return Math.floor(min + Math.random() * (max + 1 - min));
     };
 
     var generateComments = function (amountComments) {
@@ -109,7 +109,7 @@ var generateBigPicturesDOM = function (picturesJS) {
       blockCommentsDOM.removeChild(blockCommentsDOM.firstChild);
     }
 
-    for(var i = 0; i < pictureJS.comments.length; i++) {
+    for (var i = 0; i < pictureJS.comments.length; i++) {
 
       var blockCommentsDOMElement = blockCommentsDOMElementProrotype.cloneNode(true);
 
